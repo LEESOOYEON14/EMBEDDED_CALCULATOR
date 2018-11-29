@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-#include "bitmap.h"
+#include "../header/bitmap.h"
 
 
 void write_bitmap(Bitmap *bitmap, char *fileout)
