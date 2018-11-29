@@ -43,17 +43,19 @@ typedef struct {
 
 #pragma pack(pop)
 
-typedef struct {
+typedef struct  
+{
     BITMAPFILEHEADER *file_header;
     BITMAPINFOHEADER *info_header;
     byte *pixel_array;
-} Bitmap;
+}Bitmap ;
 
-typedef struct {
-    unsigned char rgbtBlue;
-    unsigned char rgbtGreen;
-    unsigned char rgbtRed;
-} RGBTRIPLE;
+typedef struct 
+{
+    unsigned char b;
+    unsigned char g;
+    unsigned char r;
+}Pixel ;
 
 int get_padding(int width);
 
@@ -62,6 +64,6 @@ void read_pixels(Bitmap *bitmap, char *filename);
 void free_bitmap(Bitmap *bitmap);
 void write_bitmap(Bitmap *bitmap, char *fileout);
 
-RGBTRIPLE *get_pixel(Bitmap *bitmap, int row, int col);
+Pixel *get_pixel(Bitmap *bitmap, int row, int col);
 
 #endif
