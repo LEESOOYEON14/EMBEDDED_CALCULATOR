@@ -60,6 +60,7 @@ typedef struct
 int get_padding(int width);
 
 Bitmap *new_bitmap(char *filename);
+
 void read_pixels(Bitmap *bitmap, char *filename);
 void free_bitmap(Bitmap *bitmap);
 void write_bitmap(Bitmap *bitmap, char *fileout);
