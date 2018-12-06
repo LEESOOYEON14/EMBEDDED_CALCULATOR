@@ -1,5 +1,5 @@
 #include "../header/bitmap.h"
-#include "../header/blur.h"
+#include "../header/monochrome.h"
 
 void greyscale_filter(Bitmap *bitmap) {
     int width = bitmap->info_header->width;
