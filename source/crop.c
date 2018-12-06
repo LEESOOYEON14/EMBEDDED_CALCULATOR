@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include "../header/bitmap.h"
-#include "crop.h"
+#include "../header/crop.h"
 
 
 
@@ -33,8 +33,8 @@ void crop_filter(Bitmap *bitmap, int top, int bottom, int left, int right)
 
     bitmap->info_header->width = new_width;
     bitmap->info_header->height = new_height;
-    bitmap->info_header->image_size = (new_width*3 + new_padding) * new_height;
-    bitmap->file_header->bmp_size = (bitmap->info_header->image_size) + BMPHEADER_SIZE;
+    bitmap->info_header->biSize = (new_width*3 + new_padding) * new_height;
+    bitmap->file_header->bmp_size = (bitmap->info_header->biSize) + BMPHEADER_SIZE;
 
     free(bitmap->pixel_array);
     bitmap->pixel_array = cropped_array;
