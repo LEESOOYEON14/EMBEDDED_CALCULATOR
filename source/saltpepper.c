@@ -1,8 +1,8 @@
 
 #include <stdlib.h>
-#include "../header/saltpepper.h"
-#include "../header/bitmap.h"
 
+#include "../header/bitmap.h"
+#include "../header/saltpepper.h"
 
 
 

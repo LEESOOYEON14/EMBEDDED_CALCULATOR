@@ -57,6 +57,7 @@ typedef struct
     unsigned char r;
 }Pixel ;
 
+
 int get_padding(int width);
 
 Bitmap *new_bitmap(char *filename);

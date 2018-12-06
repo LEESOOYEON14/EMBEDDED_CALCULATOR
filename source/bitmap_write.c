@@ -3,7 +3,7 @@
 #include <string.h>
 #include <errno.h>
 #include "../header/bitmap.h"
-
+#include "../header/bitmap_write.h"
 
 void write_bitmap(Bitmap *bitmap, char *fileout)
 {
@@ -31,4 +31,36 @@ void write_bitmap(Bitmap *bitmap, char *fileout)
     }
 
     fclose(fp);
+}
+
+Bitmap *new_bitmap(char *filename) {
+    Bitmap *bitmap = malloc(sizeof(Bitmap));
+    BITMAPFILEHEADER *file_header;
+    BITMAPINFOHEADER *info_header;
+    byte *pixel_array = NULL;
+
+    FILE *fp = fopen(filename, "rb");
+    if (fp == NULL) {
+        printf("Error opening file %s: %d (%s)\n", filename, errno, strerror(errno));
+        return NULL;
+    } else {
+        file_header = malloc(sizeof(BITMAPINFOHEADER));
+        fread(file_header, sizeof(BITMAPFILEHEADER), 1, fp);
+
+        if (file_header->header1 == 'B' && file_header->header2 == 'M') {
+            info_header = malloc(sizeof(BITMAPINFOHEADER));
+            fread(info_header, sizeof(BITMAPINFOHEADER), 1, fp);
+        } else {
+            printf("%s is not a valid bmp file.\n", filename);
+            return NULL;
+        }
+
+        fclose(fp);
+    }
+
+    bitmap->file_header = file_header;
+    bitmap->info_header = info_header;
+    bitmap->pixel_array = pixel_array;
+
+    return bitmap;
 }
