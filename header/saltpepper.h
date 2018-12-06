@@ -2,7 +2,7 @@
 #define SALTPEPPER_H
 
 
-void saltpepeer(Bitmap *bitmap, int radius);
+void saltpepper(Bitmap *bitmap, int radius);
 
 #endif
 
