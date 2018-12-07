@@ -1,4 +1,4 @@
-#define NUM_OPTIONS 8
+#define NUM_OPTIONS 9
 #define PARAM_LENGTH 100
 
 #define OPT_HELP 0
@@ -8,6 +8,7 @@
 #define OPT_MONO 4
 #define OPT_CROP 5
 #define OPT_BLUR 6
+#define OPT_SALTPEPPER 7
 
 #define CROP_DIMENSIONS 4
 
