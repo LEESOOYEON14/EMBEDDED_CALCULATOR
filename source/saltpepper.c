@@ -4,11 +4,6 @@
 #include "../header/bitmap.h"
 #include "../header/saltpepper.h"
 
-void set_pixel(byte *pixel_array, int width, int row, int col, byte b, byte g, byte r) {
-    pixel_array[row*(width*3) + (col*3+B)] = b;
-    pixel_array[row*(width*3) + (col*3+G)] = g;
-    pixel_array[row*(width*3) + (col*3+R)] = r;
-}
 
 
 void saltpepper(Bitmap *bitmap, int radius)
@@ -16,7 +11,7 @@ void saltpepper(Bitmap *bitmap, int radius)
   int width = bitmap->info_header->width;
   int height = bitmap->info_header->height;
   
-  int noise_pixel = (int){(double)(width*height*3)*radius};
+  int noise_pixel;
   
   byte *saltpepper_array = malloc(width * height * 3);
 
@@ -34,13 +29,8 @@ void saltpepper(Bitmap *bitmap, int radius)
       Pixel *pixel = get_pixel(bitmap,r,c);
 
       noise_pixel = (rand() % 2 ==1 ) ? 255: 0;
-
-      pixel_b = pixel->b;
-      pixel_g = pixel->g;
-      pixel_r = pixel->r;
-      
-    
-      set_pixel(saltpepper_array, width,row,col,noise_pixel, noise_pixel, noise_pixel);
+   
+      set_pixel(saltpepper_array, width,row,0,noise_pixel, noise_pixel, noise_pixel);
      
       free(bitmap->pixel_array);
       bitmap->pixel_array = saltpepper_array;

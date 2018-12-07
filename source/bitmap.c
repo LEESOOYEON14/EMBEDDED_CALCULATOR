@@ -74,3 +74,9 @@ Pixel *get_pixel(Bitmap *bitmap, int row, int col) {
 
     return pixel;
 }
+void set_pixel(byte *pixel_array, int width, int row, int col, byte b, byte g, byte r) {
+    pixel_array[row*(width*3) + (col*3+B)] = b;
+    pixel_array[row*(width*3) + (col*3+G)] = g;
+    pixel_array[row*(width*3) + (col*3+R)] = r;
+}
+
