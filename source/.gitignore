@@ -1,6 +1,8 @@
+*.a
 *.com
 *.class
 *.dll
 *.exe
 *.o
 *.so
+core
