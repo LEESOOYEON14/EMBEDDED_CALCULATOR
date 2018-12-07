@@ -1,10 +1,10 @@
-[GIT PROJECT] EMBEDDEDD IMAGE PROCESSER
+[GIT PROJECT] EMBEDDED IMAGE PROCESSOR
 
 
 Description
 ------------------------------------------------------------
 
-This program is 'bitmap image processer' using c language
+This program is 'bitmap image processor' using c language
 
 It performs simple image processing on bitmap files(threhreshold, invert colors, 
 greyscale, isolate channel, crop, blur and add salt&pepper noise)
